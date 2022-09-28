@@ -1,27 +1,13 @@
-const {MongoClient, GSSAPICanonicalizationValue}=require('mongodb')
-const url ="mongodb://localhost:27017"
-const conn=new MongoClient(url)
+const conn=require('./mongodb')
+// dbconnect().then((item) => {
+//     item.find({}).toArray().then((item) => {
+//         console.log(item)
+//     })
+// })
 
-async function getdata1()
-{
-    let result= await conn.connect();
-    let db =result.db('e-comm')
-    let collection=db.collection('products')
-    let res= await collection.find({}).toArray()
-    console.log('\n\nE-Comm Products Data.')
-    console.log(res)
+const main =async ()=>{
+    let data=await conn();
+    data=await data.find().toArray()
+    console.log(data);
 }
-
-async function getdata2()
-{
-
-    let result= await conn.connect();
-    let db =result.db('Facebook')
-    let collection=db.collection('Profile')
-    let res= await collection.find({}).toArray()
-    console.log('\n\nFacebook Profile Data.\n')
-    console.log(res)
-}
-
-getdata1()
-getdata2()
+main()
