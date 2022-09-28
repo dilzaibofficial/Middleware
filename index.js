@@ -8,7 +8,7 @@ async function getdata1()
     let db =result.db('e-comm')
     let collection=db.collection('products')
     let res= await collection.find({}).toArray()
-    console.log('E-Comm Products Data.')
+    console.log('\n\nE-Comm Products Data.')
     console.log(res)
 }
 
@@ -19,7 +19,7 @@ async function getdata2()
     let db =result.db('Facebook')
     let collection=db.collection('Profile')
     let res= await collection.find({}).toArray()
-    console.log('Facebook Profile Data.\n')
+    console.log('\n\nFacebook Profile Data.\n')
     console.log(res)
 }
 
